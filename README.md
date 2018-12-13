@@ -22,6 +22,7 @@ After encrypting finished two files will be created:
   2) ~~A82BD45586CF797A176B1CBEE89A5C7C~~ - (each time new values) encrypted content. May be uploaded to any public resource
   
   Content of secret file in this example:
+  ```
   <?xml version="1.0"?>
   <SecretData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <DecryptedFileName>test.txt</DecryptedFileName>
@@ -33,7 +34,7 @@ After encrypting finished two files will be created:
     <EncryptedFileName>A82BD45586CF797A176B1CBEE89A5C7C</EncryptedFileName>
     <EncryptedMD5>MWs6b9/TbJ8u5n62c/12oQ==</EncryptedMD5>
   </SecretData>
-  
+  ```
   Due to those fact that we store here IV and KEY - it should be storage in relaibale storage.
   
 ### Decryption scenario
@@ -43,9 +44,9 @@ bacanoik LOCAL D C:\Temp\test.txt.secret
 ```
   _NOTE: ~~A82BD45586CF797A176B1CBEE89A5C7C~~ file should be in the same directory with spcified secret file_
   Where:
-    * LOCAL - _type of target storage. (AZURE - will download directly from cloud but temporarly disabled)_
-    * D - _decryption direction_
-    * C:\Temp\test.txt.secret - _secret file with all required information for decryption_
+    - LOCAL - _type of target storage. (AZURE - will download directly from cloud but temporarly disabled)_
+    - D - _decryption direction_
+    - C:\Temp\test.txt.secret - _secret file with all required information for decryption_
 After decryption file with original name (test.txt in our example) will be placed in the same directory.    
 
 
