@@ -10,7 +10,7 @@ Execute in cmd:
 ```
 bacanoik LOCAL E C:\Temp\test.txt password1 password2
 ```
-  Where:
+Where:
 * **LOCAL** - _type of target storage. (AZURE - will deploy directly to cloud but temporarly disabled)_
 * **E** - _encryption direction_
 * **C:\Temp\test.txt** - _file to be encrypted_
@@ -35,7 +35,8 @@ After encrypting finished two files will be created:
     <EncryptedMD5>MWs6b9/TbJ8u5n62c/12oQ==</EncryptedMD5>
   </SecretData>
   ```
-  Due to those fact that we store here IV and KEY - it should be storage in relaibale storage.
+  
+  **Due to those fact that we store here IV and KEY - it should be saved in protected place.**
   
 ### Decryption scenario
 Execute in cmd:
@@ -43,7 +44,8 @@ Execute in cmd:
 bacanoik LOCAL D C:\Temp\test.txt.secret
 ```
   _NOTE: ~~A82BD45586CF797A176B1CBEE89A5C7C~~ file should be in the same directory with spcified secret file_
-  Where:
+  
+Where:
 * **LOCAL** - _type of target storage. (AZURE - will download directly from cloud but temporarly disabled)_
 * **D** - _decryption direction_
 * **C:\Temp\test.txt.secret** - _secret file with all required information for decryption_
@@ -51,13 +53,13 @@ After decryption file with original name (test.txt in our example) will be place
 
 
 ## REMARK
-Initialli it was done for being able encrypt/decrypt VHD files and store them on any storage platform.
+Initially it was done for being able encrypt/decrypt VHD files and store them on any storage platform.
 
-1) Double pass are used due to those fact that we have alwasy well known structure of VHD file so have some information about decrypted file.
+1) Double pass are used due to those fact that we have always well known structure of VHD file so have some information about decrypted file.
 2) passwords are really nedeed to generate keys, but even if you will use the same passwords keys will be always different thats why we use keys in secret file but not the specified passwords.
 3) Name replaced with random numbers to hide information.
 
-So theoreticall, I think - there are no information in encrypted file that may point to anything but secret file is necessary to decryption as it contain everything.
+So theoretically, I think - there are no information in encrypted file that may point to anything but secret file is necessary to decryption as it contain everything.
 
 In case of hash of encrypted/decrypted file missmath decryption became inpossible (at least with my level of knowledge here)
 
