@@ -1,22 +1,25 @@
-# bacanoik
+# Bacanoik
 Paranoidal backup tool with double encryption and cloud upload possibilities.
 
 Common idea - encrypt single file (twice due to reason below) and upload to cloud or save locally.
 
-Step by step
+##Step by step
 
-Encryption scenario.
-Execute in cmd: bacanoik LOCAL E C:\Temp\test.txt password1 password2
+###Encryption scenario.
+Execute in cmd:
+```
+bacanoik LOCAL E C:\Temp\test.txt password1 password2
+```
   Where:
-    LOCAL - type of target storage. (AZURE - will deploy directly to cloud but temporarly disabled)
-    E - encryption direction
-    C:\Temp\test.txt - file to be encrypted
-    password1 - password for first pass  (not required for decription, may be almost anything)
-    password2 - password for second pass (not required for decription, may be almost anything)
+    *LOCAL - _type of target storage. (AZURE - will deploy directly to cloud but temporarly disabled)_
+    *E - _encryption direction_
+    *C:\Temp\test.txt - _file to be encrypted_
+    *password1 - _password for first pass  (not required for decription, may be almost anything)_
+    *password2 - _password for second pass (not required for decription, may be almost anything)_
         
 After encrypting finished two files will be created:
   1) test.txt.secret - with secret information required for decryption.
-  2) A82BD45586CF797A176B1CBEE89A5C7C - (each time new values) encrypted content. May be uploaded to any public resource
+  2) ~~A82BD45586CF797A176B1CBEE89A5C7C~~ - (each time new values) encrypted content. May be uploaded to any public resource
   
   Content of secret file in this example:
   <?xml version="1.0"?>
@@ -33,18 +36,20 @@ After encrypting finished two files will be created:
   
   Due to those fact that we store here IV and KEY - it should be storage in relaibale storage.
   
-Decryption scenario
-Execute in cmd: bacanoik LOCAL D C:\Temp\test.txt.secret
-  NOTE: A82BD45586CF797A176B1CBEE89A5C7C file should be in the same directory with spcified secret file
+###Decryption scenario
+Execute in cmd:
+```
+bacanoik LOCAL D C:\Temp\test.txt.secret
+```
+  _NOTE: ~~A82BD45586CF797A176B1CBEE89A5C7C~~ file should be in the same directory with spcified secret file_
   Where:
-    LOCAL - type of target storage. (AZURE - will download directly from cloud but temporarly disabled)
-    D - decryption direction
-    C:\Temp\test.txt.secret - secret file with all required information for decryption
+    *LOCAL - _type of target storage. (AZURE - will download directly from cloud but temporarly disabled)_
+    *D - _decryption direction_
+    *C:\Temp\test.txt.secret - _secret file with all required information for decryption_
 After decryption file with original name (test.txt in our example) will be placed in the same directory.    
 
 
-
-REMARK
+##REMARK
 Initialli it was done for being able encrypt/decrypt VHD files and store them on any storage platform.
 
 1) Double pass are used due to those fact that we have alwasy well known structure of VHD file so have some information about decrypted file.
@@ -55,7 +60,7 @@ So theoreticall, I think - there are no information in encrypted file that may p
 
 In case of hash of encrypted/decrypted file missmath decryption became inpossible (at least with my level of knowledge here)
 
-SO DONT USE IT AS PRIMARY BACKUP... let it be therd level of safty...
+**SO DONT USE IT AS PRIMARY BACKUP... let it be therd level of safty...**
    
   
 
