@@ -1,7 +1,7 @@
 # Bacanoik
 Paranoidal backup tool with double encryption and cloud upload possibilities.
 
-Common idea - encrypt single file (twice due to reason below) and upload to cloud or save locally.
+Common idea - encrypt single file _twice_ (due to reason below) and upload to cloud or save locally.
 
 ## Step by step
 
