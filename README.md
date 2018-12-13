@@ -44,9 +44,9 @@ bacanoik LOCAL D C:\Temp\test.txt.secret
 ```
   _NOTE: ~~A82BD45586CF797A176B1CBEE89A5C7C~~ file should be in the same directory with spcified secret file_
   Where:
-    - LOCAL - _type of target storage. (AZURE - will download directly from cloud but temporarly disabled)_
-    - D - _decryption direction_
-    - C:\Temp\test.txt.secret - _secret file with all required information for decryption_
+    -LOCAL - _type of target storage. (AZURE - will download directly from cloud but temporarly disabled)_
+    -D - _decryption direction_
+    -C:\Temp\test.txt.secret - _secret file with all required information for decryption_
 After decryption file with original name (test.txt in our example) will be placed in the same directory.    
 
 
